@@ -85,7 +85,10 @@ function on_systick()                  --ÏµÍ³º¯ÊýÃ¿ÃëÖ´ÐÐÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ
                 start_timer(0, 1000, 1, value_hot) --¿ªÆô¶¨Ê±Æ÷0£¬³¬Ê±Ê±¼ä1s
                 set_value(3, 7, 0)                 --ÖØÖÃ±êÖ¾Î»
         end
-        if value_timer0 == 2 then
+        if value_timer0 == 2 then--Í¨¹ý°´Å¥¿ØÖÆ³ÌÐòÍ£Ö¹Ê±µÄ±êÖ¾Î»
+                value_zero = string.format("%02d", 0)
+                        set_text(3, 2,value_zero)      --Çå³ý±¾´ÎÊýÖµ
+                        
                 stop_timer(0)
                 change_screen(4)
                 set_value(3, 7, 0)
@@ -103,7 +106,9 @@ function on_systick()                  --ÏµÍ³º¯ÊýÃ¿ÃëÖ´ÐÐÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ
                 set_value(7, 7, 0)          --ÖØÖÃ±êÖ¾Î»
         end
         if value_timer1 == 2 then
-                stop_timer(1)
+                stop_timer(2)
+                value_zero = string.format("%03d", 0)
+                        set_text(7, 2,value_zero)       --Çå³ý±¾´ÎÊýÖµ
                 change_screen(8)
                 set_value(7, 7, 0)
         end
@@ -116,6 +121,10 @@ function on_systick()                  --ÏµÍ³º¯ÊýÃ¿ÃëÖ´ÐÐÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ
         end
         if value_timer2 == 2 then
                 stop_timer(1)
+                value_zero = string.format("%02d", 0)
+                value_zero3 = string.format("%03d", 0)
+                        set_text(12, 3,value_zero)       --Çå³ý±¾´ÎÊýÖµ
+                        set_text(12, 4,value_zero3)       --Çå³ý±¾´ÎÊýÖµ
                 change_screen(13)
                 set_value(12, 7, 0)
         end
@@ -268,6 +277,9 @@ function on_control_notify(screen, control, value)
                         set_text(3, 4, value)       --ÉèÖÃÊýÖµ
                         set_text(3, 5, value_force) --ÉèÖÃÊýÖµ
 
+                        value_zero = string.format("%02d", 0)
+                        set_text(3, 2,value_zero)      --ÈÈ·ó³õÊýÖµ
+
                         local door_buff = {}
                         door_buff[0] = 0x5A
                         door_buff[1] = 0xA5
@@ -300,6 +312,9 @@ function on_control_notify(screen, control, value)
                         door_buff[7] = 0x00
                         door_buff[8] = 0x02
                         uart_send_data(door_buff)
+
+                        value_zero = string.format("%02d", 0)
+                        set_text(3, 2,value_zero)       --Çå³ý±¾´ÎÊýÖµ
                 end
         end
 
@@ -354,6 +369,9 @@ function on_control_notify(screen, control, value)
                         set_text(7, 4, value)       --ÉèÖÃÊýÖµ
                         set_text(7, 3, value_force) --ÉèÖÃÊýÖµ
 
+                        value_zero = string.format("%03d", 0)
+                        set_text(7, 2,value_zero)       --Âö¶¯³õÊýÖµ
+
                         value = get_value(6, 6)     --»ñÈ¡Ñ¹Á¦ÊýÖµ
                         local door_buff1 = {}
                         door_buff1[0] = 0x5A
@@ -385,6 +403,9 @@ function on_control_notify(screen, control, value)
                         uart_send_data(door_buff)
                         stop_timer(2) --¹Ø±Õ¶¨Ê±Æ÷
                         set_value(7, 7, 0)
+
+                        value_zero = string.format("%03d", 0)
+                        set_text(7, 2,value_zero)       --Çå³ý±¾´ÎÊýÖµ
                 end
         end
 
@@ -485,6 +506,11 @@ function on_control_notify(screen, control, value)
                         set_text(12, 5, value)       --ÉèÖÃÊýÖµ
                         set_text(12, 6, value_force) --ÉèÖÃÊýÖµ
 
+                        value_zero = string.format("%02d", 0)
+                value_zero3 = string.format("%03d", 0)
+                        set_text(12, 3,value_zero)       --×Ô¶¯³õÊýÖµ
+                        set_text(12, 4,value_zero3)       --×Ô¶¯³õÊýÖµ
+
                         value2 = get_value(11, 6)    --»ñÈ¡Ñ¹Á¦ÊýÖµ
                         local door_buff = {}
                         door_buff[0] = 0x5A
@@ -515,6 +541,10 @@ function on_control_notify(screen, control, value)
                         door_buff[8] = 0x02
                         uart_send_data(door_buff)
                         set_value(12, 7, 0)
+                        value_zero = string.format("%02d", 0)
+                value_zero3 = string.format("%03d", 0)
+                        set_text(12, 3,value_zero)       --Çå³ý±¾´ÎÊýÖµ
+                        set_text(12, 4,value_zero3)       --Çå³ý±¾´ÎÊýÖµ
                 end
         end
 
