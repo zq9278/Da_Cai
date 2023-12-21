@@ -41,7 +41,7 @@
 --×Ô¶¯¼ÓÈÈ£ºEE B1 32 00 0C 00 02 00 00 01 2D FF FC FF FF
 --×Ô¶¯Âö¶¯£ºEE B1 32 00 0C 00 07 00 00 01 05 FF FC FF FF
 --ÎÄ±¾¿Ø¼þ£ºEE B1 10 00 03£¨Ò³Ãæid£© 00 02£¨¿Ø¼þid£© 31£¨Êý¾ÝÎ»1£ºÊýÖµÊÇ1£© 30£¨Êý¾ÝÎ»1£ºÊýÖµÊÇ£© FF FC FF FF
---
+--²ÜÖ¾Áá²âÊÔ
 
 
 
@@ -82,8 +82,8 @@ function on_systick()                  --ÏµÍ³º¯ÊýÃ¿ÃëÖ´ÐÐÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ
         if value_timer0 == 1 then
                 value = get_value(2, 6)
                 value_hot = 60 * value
-                start_timer(0, 1000, 1, value_hot)     --¿ªÆô¶¨Ê±Æ÷0£¬³¬Ê±Ê±¼ä1s
-                set_value(3, 7, 0)                     --ÖØÖÃ±êÖ¾Î»
+                start_timer(0, 1000, 1, value_hot) --¿ªÆô¶¨Ê±Æ÷0£¬³¬Ê±Ê±¼ä1s
+                set_value(3, 7, 0)                 --ÖØÖÃ±êÖ¾Î»
         end
         if value_timer0 == 2 then
                 stop_timer(0)
@@ -99,7 +99,7 @@ function on_systick()                  --ÏµÍ³º¯ÊýÃ¿ÃëÖ´ÐÐÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ
                 stop_timer(1)
                 change_screen(8)
         end
-        value_timer2 = get_value(12, 7)                --»ñÈ¡×Ô¶¯¶¨Ê±Æ÷±êÖ¾Î»ÊýÖµ
+        value_timer2 = get_value(12, 7) --»ñÈ¡×Ô¶¯¶¨Ê±Æ÷±êÖ¾Î»ÊýÖµ
         if value_timer2 == 1 then
                 value1 = get_value(10, 6)
                 value_auto = 60 * value1
@@ -110,7 +110,6 @@ function on_systick()                  --ÏµÍ³º¯ÊýÃ¿ÃëÖ´ÐÐÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ
                 stop_timer(1)
                 change_screen(13)
         end
-
 end
 
 --¶¨Ê±Æ÷ÖÐ¶Ï»Øµ÷º¯Êý
@@ -127,8 +126,8 @@ function on_timer(timer_id)
                         set_value(3, 7, 0)
                         --½çÃæÌø×ª
                         local door_buff1 = {}
-                       
-                        
+
+
 
 
 
@@ -162,8 +161,8 @@ function on_timer(timer_id)
                         change_screen(14)
                         --½çÃæÌø×ª
                         local door_buff1 = {}
-                       
-                        
+
+
 
 
 
@@ -198,7 +197,7 @@ function on_timer(timer_id)
                         change_screen(7)
                         --½çÃæÌø×ª
                         local door_buff1 = {}
-                       
+
 
 
 
@@ -279,11 +278,11 @@ function on_control_notify(screen, control, value)
                         set_value(3, 4, value)
                         set_value(3, 5, 00)
                         local door_buff1 = {}
-                        
 
 
 
-                        
+
+
                         door_buff1[0] = 0xEE
                         door_buff1[1] = 0xB1
                         door_buff1[2] = 0x10
@@ -309,7 +308,7 @@ function on_control_notify(screen, control, value)
                         set_value(3, 7, 0)
                         stop_timer(0)               --¹Ø±Õ¶¨Ê±Æ÷
                         local door_buff1 = {}
-                        
+
 
 
 
@@ -380,7 +379,7 @@ function on_control_notify(screen, control, value)
 
                         value = get_value(6, 6) --»ñÈ¡Ñ¹Á¦ÊýÖµ
                         local door_buff1 = {}
-                      
+
 
                         door_buff1[0] = 0xEE
                         door_buff1[1] = 0xB1
@@ -404,7 +403,7 @@ function on_control_notify(screen, control, value)
                 if control == 1 and value == 0 then --¿Ø¼þ¡®Í£Ö¹¡¯µ¯Æð
                         --½çÃæÌø×ª
                         local door_buff1 = {}
-                      
+
 
 
 
@@ -518,7 +517,7 @@ function on_control_notify(screen, control, value)
 
                         value2 = get_value(11, 6) --»ñÈ¡Ñ¹Á¦ÊýÖµ
                         local door_buff1 = {}
-                       
+
 
 
 
@@ -527,10 +526,10 @@ function on_control_notify(screen, control, value)
                         door_buff1[2] = 0x10
                         door_buff1[3] = 0x00
 
-                        door_buff1[4] =  0x37
-                        door_buff1[5] =  0x01
-                        door_buff1[6] =  value2 >> 8
-                        door_buff1[7] =  value2
+                        door_buff1[4] = 0x37
+                        door_buff1[5] = 0x01
+                        door_buff1[6] = value2 >> 8
+                        door_buff1[7] = value2
 
                         door_buff1[8] = 0xFF
                         door_buff1[9] = 0xFC
@@ -544,17 +543,17 @@ function on_control_notify(screen, control, value)
                 if control == 1 and value == 0 then --¿Ø¼þ¡®Í£Ö¹¡¯µ¯Æð
                         stop_timer(1)               --¹Ø±Õ¶¨Ê±Æ÷
                         local door_buff1 = {}
-                      
+
 
                         door_buff1[0] = 0xEE
                         door_buff1[1] = 0xB1
                         door_buff1[2] = 0x10
                         door_buff1[3] = 0x00
 
-                        door_buff1[4] =0x38
-                        door_buff1[5] =0x01
-                        door_buff1[6] =0x00
-                        door_buff1[7] =0x02
+                        door_buff1[4] = 0x38
+                        door_buff1[5] = 0x01
+                        door_buff1[6] = 0x00
+                        door_buff1[7] = 0x02
 
                         door_buff1[8] = 0xFF
                         door_buff1[9] = 0xFC
