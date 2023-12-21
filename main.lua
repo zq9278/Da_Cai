@@ -3,7 +3,7 @@
 -- Èç¹ûÊ¹ÓÃÆäËûLua±à¼­¹¤¾ß±à¼­´ËÎÄµµ£¬Çë½«VisualTFTÈí¼şÖĞ´ò¿ªµÄ´ËÎÄ¼ş±à¼­Æ÷ÊÓÍ¼¹Ø±Õ£¬
 -- ÒòÎªVisualTFT¾ßÓĞ×Ô¶¯±£´æ¹¦ÄÜ£¬ÆäËûÈí¼şĞŞ¸ÄÊ±²»ÄÜÍ¬²½µ½VisualTFT±à¼­ÊÓÍ¼£¬
 -- VisualTFT¶¨Ê±±£´æÊ±£¬ÆäËûÈí¼şĞŞ¸ÄµÄÄÚÈİ½«±»»Ö¸´¡£
---
+
 -- Attention
 -- If you use other Lua Editor to edit this file, please close the file editor view
 -- opened in the VisualTFT, Because VisualTFT has an automatic save function,
@@ -85,10 +85,10 @@ function on_systick()                  --ÏµÍ³º¯ÊıÃ¿ÃëÖ´ĞĞÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ
                 start_timer(0, 1000, 1, value_hot) --¿ªÆô¶¨Ê±Æ÷0£¬³¬Ê±Ê±¼ä1s
                 set_value(3, 7, 0)                 --ÖØÖÃ±êÖ¾Î»
         end
-        if value_timer0 == 2 then--Í¨¹ı°´Å¥¿ØÖÆ³ÌĞòÍ£Ö¹Ê±µÄ±êÖ¾Î»
+        if value_timer0 == 2 then                  --Í¨¹ı°´Å¥¿ØÖÆ³ÌĞòÍ£Ö¹Ê±µÄ±êÖ¾Î»
                 value_zero = string.format("%02d", 0)
-                        set_text(3, 2,value_zero)      --Çå³ı±¾´ÎÊıÖµ
-                        
+                set_text(3, 2, value_zero)         --Çå³ı±¾´ÎÊıÖµ
+
                 stop_timer(0)
                 change_screen(4)
                 set_value(3, 7, 0)
@@ -108,7 +108,7 @@ function on_systick()                  --ÏµÍ³º¯ÊıÃ¿ÃëÖ´ĞĞÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ
         if value_timer1 == 2 then
                 stop_timer(2)
                 value_zero = string.format("%03d", 0)
-                        set_text(7, 2,value_zero)       --Çå³ı±¾´ÎÊıÖµ
+                set_text(7, 2, value_zero)        --Çå³ı±¾´ÎÊıÖµ
                 change_screen(8)
                 set_value(7, 7, 0)
         end
@@ -123,8 +123,8 @@ function on_systick()                  --ÏµÍ³º¯ÊıÃ¿ÃëÖ´ĞĞÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ
                 stop_timer(1)
                 value_zero = string.format("%02d", 0)
                 value_zero3 = string.format("%03d", 0)
-                        set_text(12, 3,value_zero)       --Çå³ı±¾´ÎÊıÖµ
-                        set_text(12, 4,value_zero3)       --Çå³ı±¾´ÎÊıÖµ
+                set_text(12, 3, value_zero)         --Çå³ı±¾´ÎÊıÖµ
+                set_text(12, 4, value_zero3)        --Çå³ı±¾´ÎÊıÖµ
                 change_screen(13)
                 set_value(12, 7, 0)
         end
@@ -278,7 +278,7 @@ function on_control_notify(screen, control, value)
                         set_text(3, 5, value_force) --ÉèÖÃÊıÖµ
 
                         value_zero = string.format("%02d", 0)
-                        set_text(3, 2,value_zero)      --ÈÈ·ó³õÊıÖµ
+                        set_text(3, 2, value_zero) --ÈÈ·ó³õÊıÖµ
 
                         local door_buff = {}
                         door_buff[0] = 0x5A
@@ -314,7 +314,7 @@ function on_control_notify(screen, control, value)
                         uart_send_data(door_buff)
 
                         value_zero = string.format("%02d", 0)
-                        set_text(3, 2,value_zero)       --Çå³ı±¾´ÎÊıÖµ
+                        set_text(3, 2, value_zero) --Çå³ı±¾´ÎÊıÖµ
                 end
         end
 
@@ -370,9 +370,9 @@ function on_control_notify(screen, control, value)
                         set_text(7, 3, value_force) --ÉèÖÃÊıÖµ
 
                         value_zero = string.format("%03d", 0)
-                        set_text(7, 2,value_zero)       --Âö¶¯³õÊıÖµ
+                        set_text(7, 2, value_zero) --Âö¶¯³õÊıÖµ
 
-                        value = get_value(6, 6)     --»ñÈ¡Ñ¹Á¦ÊıÖµ
+                        value = get_value(6, 6)   --»ñÈ¡Ñ¹Á¦ÊıÖµ
                         local door_buff1 = {}
                         door_buff1[0] = 0x5A
                         door_buff1[1] = 0xA5
@@ -405,7 +405,7 @@ function on_control_notify(screen, control, value)
                         set_value(7, 7, 0)
 
                         value_zero = string.format("%03d", 0)
-                        set_text(7, 2,value_zero)       --Çå³ı±¾´ÎÊıÖµ
+                        set_text(7, 2, value_zero) --Çå³ı±¾´ÎÊıÖµ
                 end
         end
 
@@ -507,11 +507,11 @@ function on_control_notify(screen, control, value)
                         set_text(12, 6, value_force) --ÉèÖÃÊıÖµ
 
                         value_zero = string.format("%02d", 0)
-                value_zero3 = string.format("%03d", 0)
-                        set_text(12, 3,value_zero)       --×Ô¶¯³õÊıÖµ
-                        set_text(12, 4,value_zero3)       --×Ô¶¯³õÊıÖµ
+                        value_zero3 = string.format("%03d", 0)
+                        set_text(12, 3, value_zero) --×Ô¶¯³õÊıÖµ
+                        set_text(12, 4, value_zero3) --×Ô¶¯³õÊıÖµ
 
-                        value2 = get_value(11, 6)    --»ñÈ¡Ñ¹Á¦ÊıÖµ
+                        value2 = get_value(11, 6)   --»ñÈ¡Ñ¹Á¦ÊıÖµ
                         local door_buff = {}
                         door_buff[0] = 0x5A
                         door_buff[1] = 0xA5
@@ -542,9 +542,9 @@ function on_control_notify(screen, control, value)
                         uart_send_data(door_buff)
                         set_value(12, 7, 0)
                         value_zero = string.format("%02d", 0)
-                value_zero3 = string.format("%03d", 0)
-                        set_text(12, 3,value_zero)       --Çå³ı±¾´ÎÊıÖµ
-                        set_text(12, 4,value_zero3)       --Çå³ı±¾´ÎÊıÖµ
+                        value_zero3 = string.format("%03d", 0)
+                        set_text(12, 3, value_zero) --Çå³ı±¾´ÎÊıÖµ
+                        set_text(12, 4, value_zero3) --Çå³ı±¾´ÎÊıÖµ
                 end
         end
 
