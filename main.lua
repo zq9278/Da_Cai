@@ -34,7 +34,7 @@
 --当画面切换时，执行此回调函数，screen为目标画面。
 --function on_screen_change(screen)
 --end
-
+--测试tag
 --曲线控件绘画指令EE B1 32 00 03（页面id） 00 02（控件id） 00 00（通道id） 01（数据位长度） 11（温度十六进制） FF FC FF FF
 --加热：EE B1 32 00 03 00 02 00 00 01 2D FF FC FF FF
 --脉动：EE B1 32 00 07 00 02 00 00 01 05 FF FC FF FF
