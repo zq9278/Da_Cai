@@ -78,7 +78,7 @@ end
 
 function on_press(state,x,y)
         set_backlight(100)
-        start_timer(3, 10000, 1, 0)
+        start_timer(3, 60000, 1, 0)
 end
 function on_systick()                  --系统函数每秒执行一次，作用检测定时器标志位是否被串口写入
         value_timer0 = get_value(3, 7) --获取热敷定时器标志位数值
@@ -299,7 +299,7 @@ function on_control_notify(screen, control, value)
 
                         uart_send_data(door_buff)
                         
-                        stop_timer(3)
+                        stop_timer(3)--关闭屏幕休眠定时器
 
                 end
         end
@@ -393,6 +393,7 @@ function on_control_notify(screen, control, value)
                         door_buff1[7] = value >> 8
                         door_buff1[8] = value
                         uart_send_data(door_buff1)
+                        stop_timer(3)--关闭屏幕休眠定时器
                 end
         end
         ----------第7页脉动页面----------
@@ -532,6 +533,7 @@ function on_control_notify(screen, control, value)
                         door_buff[7] = value2 >> 8
                         door_buff[8] = value2
                         uart_send_data(door_buff)
+                        stop_timer(3)--关闭屏幕休眠定时器
                 end
         end
         -----------第12页自动脉动页面---------

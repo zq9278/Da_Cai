@@ -78,7 +78,7 @@ end
 
 function on_press(state,x,y)
         set_backlight(100)
-        start_timer(3, 10000, 1, 0)
+        start_timer(3, 60000, 1, 0)
 end
 function on_systick()                  --系统函数每秒执行一次，作用检测定时器标志位是否被串口写入
         value_timer0 = get_value(3, 7) --获取热敷定时器标志位数值
