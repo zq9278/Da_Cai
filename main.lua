@@ -3,7 +3,6 @@
 -- 如果使用其他Lua编辑工具编辑此文档，请将VisualTFT软件中打开的此文件编辑器视图关闭，
 -- 因为VisualTFT具有自动保存功能，其他软件修改时不能同步到VisualTFT编辑视图，
 -- VisualTFT定时保存时，其他软件修改的内容将被恢复。
-
 -- Attention
 -- If you use other Lua Editor to edit this file, please close the file editor view
 -- opened in the VisualTFT, Because VisualTFT has an automatic save function,
