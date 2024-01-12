@@ -76,10 +76,11 @@ function on_uart_recv_data(packet)
         end
 end
 
-function on_press(state,x,y)
+function on_press(state, x, y)
         set_backlight(100)
         start_timer(3, 60000, 1, 0)
 end
+
 function on_systick()                  --ÏµÍ³º¯ÊýÃ¿ÃëÖ´ÐÐÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ¾Î»ÊÇ·ñ±»´®¿ÚÐ´Èë
         value_timer0 = get_value(3, 7) --»ñÈ¡ÈÈ·ó¶¨Ê±Æ÷±êÖ¾Î»ÊýÖµ
         if value_timer0 == 1 then
@@ -111,7 +112,7 @@ function on_systick()                  --ÏµÍ³º¯ÊýÃ¿ÃëÖ´ÐÐÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ
         if value_timer1 == 2 then
                 stop_timer(2)
                 value_zero = string.format("%03d", 0)
-                set_text(7, 2, value_zero)        --Çå³ý±¾´ÎÊýÖµ
+                set_text(7, 2, value_zero) --Çå³ý±¾´ÎÊýÖµ
                 change_screen(8)
                 set_value(7, 7, 0)
         end
@@ -126,8 +127,8 @@ function on_systick()                  --ÏµÍ³º¯ÊýÃ¿ÃëÖ´ÐÐÒ»´Î£¬×÷ÓÃ¼ì²â¶¨Ê±Æ÷±êÖ
                 stop_timer(1)
                 value_zero = string.format("%02d", 0)
                 value_zero3 = string.format("%03d", 0)
-                set_text(12, 3, value_zero)         --Çå³ý±¾´ÎÊýÖµ
-                set_text(12, 4, value_zero3)        --Çå³ý±¾´ÎÊýÖµ
+                set_text(12, 3, value_zero)  --Çå³ý±¾´ÎÊýÖµ
+                set_text(12, 4, value_zero3) --Çå³ý±¾´ÎÊýÖµ
                 change_screen(13)
                 set_value(12, 7, 0)
         end
@@ -215,7 +216,7 @@ function on_timer(timer_id)
                         uart_send_data(door_buff2)
                 end
         end
-        if timer_id == 3 then                               
+        if timer_id == 3 then
                 set_backlight(0)
         end
 end
@@ -278,10 +279,11 @@ function on_control_notify(screen, control, value)
                 if control == 2 and value == 0 then
                         --»ñÈ¡µ¹¼ÆÊ±ÊýÖµ£¬²¢ÏÔÊ¾
                         value = get_value(2, 6)
-                        value = string.format("%02d", value)
-                        value_force = string.format("%02d", 0)
-                        set_text(3, 4, value)       --ÉèÖÃÊýÖµ
-                        set_text(3, 5, value_force) --ÉèÖÃÊýÖµ
+                        -- value = string.format("%02d", value)
+                        -- value_force = string.format("%02d", 0)
+                        -- set_text(3, 4, value)       --ÉèÖÃÊýÖµ
+                        -- set_text(3, 5, value_force) --ÉèÖÃÊýÖµ
+                        set_value(3, 3, value)
 
                         value_zero = string.format("%02d", 0)
                         set_text(3, 2, value_zero) --ÈÈ·ó³õÊýÖµ
@@ -298,9 +300,8 @@ function on_control_notify(screen, control, value)
                         door_buff[8] = value
 
                         uart_send_data(door_buff)
-                        
-                        stop_timer(3)--¹Ø±ÕÆÁÄ»ÐÝÃß¶¨Ê±Æ÷
 
+                        stop_timer(3) --¹Ø±ÕÆÁÄ»ÐÝÃß¶¨Ê±Æ÷
                 end
         end
 
@@ -381,7 +382,7 @@ function on_control_notify(screen, control, value)
                         value_zero = string.format("%03d", 0)
                         set_text(7, 2, value_zero) --Âö¶¯³õÊýÖµ
 
-                        value = get_value(6, 6)   --»ñÈ¡Ñ¹Á¦ÊýÖµ
+                        value = get_value(6, 6)    --»ñÈ¡Ñ¹Á¦ÊýÖµ
                         local door_buff1 = {}
                         door_buff1[0] = 0x5A
                         door_buff1[1] = 0xA5
@@ -393,7 +394,7 @@ function on_control_notify(screen, control, value)
                         door_buff1[7] = value >> 8
                         door_buff1[8] = value
                         uart_send_data(door_buff1)
-                        stop_timer(3)--¹Ø±ÕÆÁÄ»ÐÝÃß¶¨Ê±Æ÷
+                        stop_timer(3) --¹Ø±ÕÆÁÄ»ÐÝÃß¶¨Ê±Æ÷
                 end
         end
         ----------µÚ7Ò³Âö¶¯Ò³Ãæ----------
@@ -518,10 +519,10 @@ function on_control_notify(screen, control, value)
 
                         value_zero = string.format("%02d", 0)
                         value_zero3 = string.format("%03d", 0)
-                        set_text(12, 3, value_zero) --×Ô¶¯³õÊýÖµ
+                        set_text(12, 3, value_zero)  --×Ô¶¯³õÊýÖµ
                         set_text(12, 4, value_zero3) --×Ô¶¯³õÊýÖµ
 
-                        value2 = get_value(11, 6)   --»ñÈ¡Ñ¹Á¦ÊýÖµ
+                        value2 = get_value(11, 6)    --»ñÈ¡Ñ¹Á¦ÊýÖµ
                         local door_buff = {}
                         door_buff[0] = 0x5A
                         door_buff[1] = 0xA5
@@ -533,7 +534,7 @@ function on_control_notify(screen, control, value)
                         door_buff[7] = value2 >> 8
                         door_buff[8] = value2
                         uart_send_data(door_buff)
-                        stop_timer(3)--¹Ø±ÕÆÁÄ»ÐÝÃß¶¨Ê±Æ÷
+                        stop_timer(3) --¹Ø±ÕÆÁÄ»ÐÝÃß¶¨Ê±Æ÷
                 end
         end
         -----------µÚ12Ò³×Ô¶¯Âö¶¯Ò³Ãæ---------
@@ -554,7 +555,7 @@ function on_control_notify(screen, control, value)
                         set_value(12, 7, 0)
                         value_zero = string.format("%02d", 0)
                         value_zero3 = string.format("%03d", 0)
-                        set_text(12, 3, value_zero) --Çå³ý±¾´ÎÊýÖµ
+                        set_text(12, 3, value_zero)  --Çå³ý±¾´ÎÊýÖµ
                         set_text(12, 4, value_zero3) --Çå³ý±¾´ÎÊýÖµ
                 end
         end
