@@ -48,6 +48,17 @@
 
 
 
+
+
+
+function on_init()
+        start_timer(4, 100, 0, 0) --开启定时器4，超时时间100ms  
+end
+
+
+
+
+
 uart_free_protocol = 0
 local Func_lampState = 0x01
 local Func_lampLight = 0x02
@@ -81,57 +92,10 @@ function on_press(state,x,y)
         start_timer(3, 60000, 1, 0)
 end
 function on_systick()                  --系统函数每秒执行一次，作用检测定时器标志位是否被串口写入
-        value_timer0 = get_value(3, 7) --获取热敷定时器标志位数值
-        if value_timer0 == 1 then
-                value = get_value(2, 6)
-                value_hot = 60 * value
-                start_timer(0, 1000, 1, value_hot) --开启定时器0，超时时间1s
-                set_value(3, 7, 0)                 --重置标志位
-        end
-        if value_timer0 == 2 then                  --通过按钮控制程序停止时的标志位
-                value_zero = string.format("%02d", 0)
-                set_text(3, 2, value_zero)         --清除本次数值
-
-                stop_timer(0)
-                change_screen(4)
-                set_value(3, 7, 0)
-        end
-        value_timer1 = get_value(7, 7)                 --获取脉动定时器标志位数值
-        if value_timer1 == 1 then
-                value_maidong = 60 * 5                 --默认5分钟
-                start_timer(2, 1000, 1, value_maidong) --开启定时器2，超时时间1s
-
-                value = string.format("%02d", 5)
-                value_force = string.format("%02d", 0)
-                set_text(7, 4, value)       --设置数值
-                set_text(7, 3, value_force) --设置数值
-
-                set_value(7, 7, 0)          --重置标志位
-        end
-        if value_timer1 == 2 then
-                stop_timer(2)
-                value_zero = string.format("%03d", 0)
-                set_text(7, 2, value_zero)        --清除本次数值
-                change_screen(8)
-                set_value(7, 7, 0)
-        end
-        value_timer2 = get_value(12, 7) --获取自动定时器标志位数值
-        if value_timer2 == 1 then
-                value1 = get_value(10, 6)
-                value_auto = 60 * value1
-                start_timer(1, 1000, 1, value_auto) --开启定时器1，超时时间1s
-                set_value(12, 7, 0)                 --重置标志位
-        end
-        if value_timer2 == 2 then
-                stop_timer(1)
-                value_zero = string.format("%02d", 0)
-                value_zero3 = string.format("%03d", 0)
-                set_text(12, 3, value_zero)         --清除本次数值
-                set_text(12, 4, value_zero3)        --清除本次数值
-                change_screen(13)
-                set_value(12, 7, 0)
-        end
+        
 end
+
+
 
 --定时器中断回调函数
 function on_timer(timer_id)
@@ -148,14 +112,19 @@ function on_timer(timer_id)
                         change_screen(5)
                         set_value(3, 7, 0)
                         --界面跳转
+
+                        --热敷预热开启指令
                         local door_buff = {}
                         door_buff[0] = 0x5A
                         door_buff[1] = 0xA5
                         door_buff[2] = 0x06
                         door_buff[3] = 0x83
+
                         door_buff[4] = 0x10
                         door_buff[5] = 0x30
+
                         door_buff[6] = 0x01
+
                         door_buff[7] = 0x00
                         door_buff[8] = 0x02
                         uart_send_data(door_buff)
@@ -218,6 +187,66 @@ function on_timer(timer_id)
         if timer_id == 3 then                               
                 set_backlight(0)
         end
+
+
+
+        if timer_id == 4 then            --系统函数每秒执行一次，作用检测定时器标志位是否被串口写入                   
+                value_timer0 = get_value(3, 7) --获取热敷定时器标志位数值
+                if value_timer0 == 1 then
+                        value = get_value(2, 6)
+                        value_hot = 60 * value
+                        start_timer(0, 1000, 1, value_hot) --开启定时器0，超时时间1s
+                        set_value(3, 7, 0)                 --重置标志位
+                end
+                if value_timer0 == 2 then                  --通过按钮控制程序停止时的标志位
+                        value_zero = string.format("%02d", 0)
+                        set_text(3, 2, value_zero)         --清除本次数值
+        
+                        stop_timer(0)
+                        change_screen(4)
+                        set_value(3, 7, 0)
+                end
+                value_timer1 = get_value(7, 7)                 --获取脉动定时器标志位数值
+                if value_timer1 == 1 then
+                        value_maidong = 60 * 5                 --默认5分钟
+                        start_timer(2, 1000, 1, value_maidong) --开启定时器2，超时时间1s
+        
+                        value = string.format("%02d", 5)
+                        value_force = string.format("%02d", 0)
+                        set_text(7, 4, value)       --设置数值
+                        set_text(7, 3, value_force) --设置数值
+        
+                        set_value(7, 7, 0)          --重置标志位
+                end
+                if value_timer1 == 2 then
+                        stop_timer(2)
+                        value_zero = string.format("%03d", 0)
+                        set_text(7, 2, value_zero)        --清除本次数值
+                        change_screen(8)
+                        set_value(7, 7, 0)
+                end
+                value_timer2 = get_value(12, 7) --获取自动定时器标志位数值
+                if value_timer2 == 1 then
+                        value1 = get_value(10, 6)
+                        value_auto = 60 * value1
+                        start_timer(1, 1000, 1, value_auto) --开启定时器1，超时时间1s
+                        set_value(12, 7, 0)                 --重置标志位
+                end
+                if value_timer2 == 2 then
+                        stop_timer(1)
+                        value_zero = string.format("%02d", 0)
+                        value_zero3 = string.format("%03d", 0)
+                        set_text(12, 3, value_zero)         --清除本次数值
+                        set_text(12, 4, value_zero3)        --清除本次数值
+                        change_screen(13)
+                        set_value(12, 7, 0)
+                end
+        
+        end
+
+        
+
+
 end
 
 --控件回调函数
@@ -521,6 +550,23 @@ function on_control_notify(screen, control, value)
                         set_text(12, 3, value_zero) --自动初数值
                         set_text(12, 4, value_zero3) --自动初数值
 
+
+--                          --热敷预热开启指令
+--                          local door_buff1 = {}
+--                          door_buff1[0] = 0x5A
+--                          door_buff1[1] = 0xA5
+--                          door_buff1[2] = 0x06
+--                          door_buff1[3] = 0x83
+--  1
+--                          door_buff1[4] = 0x10
+--                          door_buff1[5] = 0x30
+--  1
+--                          door_buff1[6] = 0x01
+--  1
+--                          door_buff1[7] = 0x00
+--                          door_buff1[8] = 0x02
+--                          uart_send_data(door_buff)
+
                         value2 = get_value(11, 6)   --获取压力数值
                         local door_buff = {}
                         door_buff[0] = 0x5A
@@ -536,7 +582,7 @@ function on_control_notify(screen, control, value)
                         stop_timer(3)--关闭屏幕休眠定时器
                 end
         end
-        -----------第12页自动脉动页面---------
+        -----------第12页自动停止页面---------
         if screen == 12 then
                 if control == 1 and value == 0 then --控件‘停止’弹起
                         stop_timer(1)               --关闭定时器
