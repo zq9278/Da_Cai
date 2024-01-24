@@ -83,7 +83,12 @@
 
 #define  _TXT_DIS__SCREEN3_TEXT_DISPLAY4                                       7
 
-#define  _RTC_SCREEN3_RTC1                                                     3
+#define  _TXT_DIS__SCREEN3_TEXT_DISPLAY1                                       3
+
+#define  _TXT_DIS__SCREEN3_TEXT_DISPLAY2                                       4
+
+//画面Screen3中文本显示Text_Display2的背景图片
+#define  _IMG_SCREEN3_TEXT_DISPLAY2                                            8
 
 #define  _BTN_SCREEN4_BUTTON1                                                  1
 
@@ -130,6 +135,9 @@
 #define  _TXT_DIS__SCREEN7_TEXT_DISPLAY4                                       7
 
 #define  _TXT_DIS__SCREEN7_TEXT_DISPLAY1                                       3
+
+//画面Screen7中文本显示Text_Display1的背景图片
+#define  _IMG_SCREEN7_TEXT_DISPLAY1                                            8
 
 #define  _BTN_SCREEN8_BUTTON1                                                  1
 
@@ -188,12 +196,12 @@
 #define  _TXT_DIS__SCREEN12_TEXT_DISPLAY3                                      5
 
 //画面Screen12中文本显示Text_Display3的背景图片
-#define  _IMG_SCREEN12_TEXT_DISPLAY3                                          14
+#define  _IMG_SCREEN12_TEXT_DISPLAY3                                          15
 
 #define  _TXT_DIS__SCREEN12_TEXT_DISPLAY4                                      6
 
 //画面Screen12中文本显示Text_Display4的背景图片
-#define  _IMG_SCREEN12_TEXT_DISPLAY4                                          14
+#define  _IMG_SCREEN12_TEXT_DISPLAY4                                          15
 
 //画面Screen12中动画控件Icon2使用的图片
 #define  _IMG_SCREEN12_ICON2                                                   2

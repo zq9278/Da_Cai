@@ -200,46 +200,46 @@ function on_timer(timer_id)
                         change_screen(14)
                         --界面跳转
 
-                        -- --自动停止指令（倒计时）
-                        -- local door_buff1 = {}
-                        -- door_buff1[0] = 0x5A
-                        -- door_buff1[1] = 0xA5
-                        -- door_buff1[2] = 0x06
-                        -- door_buff1[3] = 0x83
-                        -- door_buff1[4] = 0x10
-                        -- door_buff1[5] = 0x38
-                        -- door_buff1[6] = 0x01
-                        -- door_buff1[7] = 0x00
-                        -- door_buff1[8] = 0x02
-                        -- uart_send_data(door_buff1)
+                        --自动停止指令（倒计时）
+                        local door_buff1 = {}
+                        door_buff1[0] = 0x5A
+                        door_buff1[1] = 0xA5
+                        door_buff1[2] = 0x06
+                        door_buff1[3] = 0x83
+                        door_buff1[4] = 0x10
+                        door_buff1[5] = 0x38
+                        door_buff1[6] = 0x01
+                        door_buff1[7] = 0x00
+                        door_buff1[8] = 0x02
+                        uart_send_data(door_buff1)
                         --热敷停止指令（倒计时）
-                        local door_buff = {}
-                        door_buff[0] = 0x5A
-                        door_buff[1] = 0xA5
-                        door_buff[2] = 0x06
-                        door_buff[3] = 0x83
+                        -- local door_buff = {}
+                        -- door_buff[0] = 0x5A
+                        -- door_buff[1] = 0xA5
+                        -- door_buff[2] = 0x06
+                        -- door_buff[3] = 0x83
 
-                        door_buff[4] = 0x10
-                        door_buff[5] = 0x30
+                        -- door_buff[4] = 0x10
+                        -- door_buff[5] = 0x30
 
-                        door_buff[6] = 0x01
+                        -- door_buff[6] = 0x01
 
-                        door_buff[7] = 0x00
-                        door_buff[8] = 0x02
-                        uart_send_data(door_buff)
+                        -- door_buff[7] = 0x00
+                        -- door_buff[8] = 0x02
+                        -- uart_send_data(door_buff)
 
-                        --脉动停止指令（倒计时）
-                        local door_buff2 = {}
-                        door_buff2[0] = 0x5A
-                        door_buff2[1] = 0xA5
-                        door_buff2[2] = 0x06
-                        door_buff2[3] = 0x83
-                        door_buff2[4] = 0x10
-                        door_buff2[5] = 0x34
-                        door_buff2[6] = 0x01
-                        door_buff2[7] = 0x00
-                        door_buff2[8] = 0x02
-                        uart_send_data(door_buff2)
+                        -- --脉动停止指令（倒计时）
+                        -- local door_buff2 = {}
+                        -- door_buff2[0] = 0x5A
+                        -- door_buff2[1] = 0xA5
+                        -- door_buff2[2] = 0x06
+                        -- door_buff2[3] = 0x83
+                        -- door_buff2[4] = 0x10
+                        -- door_buff2[5] = 0x34
+                        -- door_buff2[6] = 0x01
+                        -- door_buff2[7] = 0x00
+                        -- door_buff2[8] = 0x02
+                        -- uart_send_data(door_buff2)
                 end
         end
 
@@ -337,7 +337,7 @@ function on_control_notify(screen, control, value)
                         value = string.format("%02d", value)
                         value_force = string.format("%02d", 0)
                         set_text(3, 4, value)       --设置数值
-                        set_text(3, 5, value_force) --设置数值
+                        set_text(3, 3, value_force) --设置数值
 
                         value_zero = string.format("%02d", 0)
                         set_text(3, 2, value_zero) --热敷初数值

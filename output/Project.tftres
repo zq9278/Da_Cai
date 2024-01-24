@@ -17,36 +17,36 @@
         <page name="Screen14" id="14" />
     </pages>
     <images>
-        <image id="0" url="d:\project\screen\da_cai\Images\02.jpg" effect_width="240" effect_height="320" />
-        <image id="1" url="d:\project\screen\da_cai\Images\10.jpg" effect_width="240" effect_height="320" />
-        <image id="2" url="d:\project\screen\da_cai\Images\电池.ICON" effect_width="30" effect_height="16" />
-        <image id="3" url="d:\project\screen\da_cai\Images\热敷第1屏.png" effect_width="240" effect_height="320" />
-        <image id="4" url="d:\project\screen\da_cai\Images\热敷.ICON" effect_width="240" effect_height="320" />
-        <image id="5" url="d:\project\screen\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="20" effect_height="56" />
-        <image id="6" url="d:\project\screen\da_cai\Images\微信图片_20231214111328.png" effect_width="240" effect_height="320" />
-        <image id="7" url="d:\project\screen\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="31" effect_height="86" />
-        <image id="8" url="d:\project\screen\da_cai\Images\08.png" effect_width="240" effect_height="320" />
-        <image id="9" url="d:\project\screen\da_cai\Images\09.png" effect_width="240" effect_height="320" />
-        <image id="10" url="d:\project\screen\da_cai\Images\脉动第1屏.png" effect_width="240" effect_height="320" />
-        <image id="11" url="d:\project\screen\da_cai\Images\脉动.ICON" effect_width="240" effect_height="320" />
-        <image id="12" url="d:\project\screen\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="23" effect_height="65" />
-        <image id="13" url="d:\project\screen\da_cai\Images\微信图片_20231214111349.png" effect_width="240" effect_height="320" />
-        <image id="14" url="d:\project\screen\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="10" effect_height="28" />
-        <image id="15" url="d:\project\screen\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="26" effect_height="71" />
-        <image id="16" url="d:\project\screen\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="11" effect_height="30" />
-        <image id="17" url="d:\project\screen\da_cai\Images\04.png" effect_width="240" effect_height="320" />
-        <image id="18" url="d:\project\screen\da_cai\Images\05.png" effect_width="240" effect_height="320" />
-        <image id="19" url="d:\project\screen\da_cai\Images\01.png" effect_width="240" effect_height="320" />
-        <image id="20" url="d:\project\screen\da_cai\Images\自动1.ICON" effect_width="240" effect_height="320" />
-        <image id="21" url="d:\project\screen\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="24" effect_height="66" />
-        <image id="22" url="d:\project\screen\da_cai\Images\自动第2屏.png" effect_width="240" effect_height="320" />
-        <image id="23" url="d:\project\screen\da_cai\Images\自动2.ICON" effect_width="240" effect_height="320" />
-        <image id="24" url="d:\project\screen\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="27" effect_height="75" />
-        <image id="25" url="d:\project\screen\da_cai\Images\微信图片_20231214111413.png" effect_width="240" effect_height="320" />
-        <image id="26" url="d:\project\screen\da_cai\Images\自动艺术字.ICON" effect_width="15" effect_height="44" />
-        <image id="27" url="d:\project\screen\da_cai\Images\自动艺术字.ICON" effect_width="17" effect_height="51" />
-        <image id="28" url="d:\project\screen\da_cai\Images\13.png" effect_width="240" effect_height="320" />
-        <image id="29" url="d:\project\screen\da_cai\Images\14.png" effect_width="240" effect_height="320" />
+        <image id="0" url="d:\serial_screen\dacai\da_cai\Images\02.jpg" effect_width="240" effect_height="320" />
+        <image id="1" url="d:\serial_screen\dacai\da_cai\Images\10.jpg" effect_width="240" effect_height="320" />
+        <image id="2" url="d:\serial_screen\dacai\da_cai\Images\电池.ICON" effect_width="30" effect_height="16" />
+        <image id="3" url="d:\serial_screen\dacai\da_cai\Images\热敷第1屏.png" effect_width="240" effect_height="320" />
+        <image id="4" url="d:\serial_screen\dacai\da_cai\Images\热敷.ICON" effect_width="240" effect_height="320" />
+        <image id="5" url="d:\serial_screen\dacai\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="20" effect_height="56" />
+        <image id="6" url="d:\serial_screen\dacai\da_cai\Images\微信图片_20231214111328.png" effect_width="240" effect_height="320" />
+        <image id="7" url="d:\serial_screen\dacai\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="31" effect_height="86" />
+        <image id="8" url="d:\serial_screen\dacai\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="11" effect_height="30" />
+        <image id="9" url="d:\serial_screen\dacai\da_cai\Images\08.png" effect_width="240" effect_height="320" />
+        <image id="10" url="d:\serial_screen\dacai\da_cai\Images\09.png" effect_width="240" effect_height="320" />
+        <image id="11" url="d:\serial_screen\dacai\da_cai\Images\脉动第1屏.png" effect_width="240" effect_height="320" />
+        <image id="12" url="d:\serial_screen\dacai\da_cai\Images\脉动.ICON" effect_width="240" effect_height="320" />
+        <image id="13" url="d:\serial_screen\dacai\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="23" effect_height="65" />
+        <image id="14" url="d:\serial_screen\dacai\da_cai\Images\微信图片_20231214111349.png" effect_width="240" effect_height="320" />
+        <image id="15" url="d:\serial_screen\dacai\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="10" effect_height="28" />
+        <image id="16" url="d:\serial_screen\dacai\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="26" effect_height="71" />
+        <image id="17" url="d:\serial_screen\dacai\da_cai\Images\04.png" effect_width="240" effect_height="320" />
+        <image id="18" url="d:\serial_screen\dacai\da_cai\Images\05.png" effect_width="240" effect_height="320" />
+        <image id="19" url="d:\serial_screen\dacai\da_cai\Images\01.png" effect_width="240" effect_height="320" />
+        <image id="20" url="d:\serial_screen\dacai\da_cai\Images\自动1.ICON" effect_width="240" effect_height="320" />
+        <image id="21" url="d:\serial_screen\dacai\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="24" effect_height="66" />
+        <image id="22" url="d:\serial_screen\dacai\da_cai\Images\自动第2屏.png" effect_width="240" effect_height="320" />
+        <image id="23" url="d:\serial_screen\dacai\da_cai\Images\自动2.ICON" effect_width="240" effect_height="320" />
+        <image id="24" url="d:\serial_screen\dacai\da_cai\Images\热敷和脉动艺术字.ICON" effect_width="27" effect_height="75" />
+        <image id="25" url="d:\serial_screen\dacai\da_cai\Images\微信图片_20231214111413.png" effect_width="240" effect_height="320" />
+        <image id="26" url="d:\serial_screen\dacai\da_cai\Images\自动艺术字.ICON" effect_width="15" effect_height="44" />
+        <image id="27" url="d:\serial_screen\dacai\da_cai\Images\自动艺术字.ICON" effect_width="17" effect_height="51" />
+        <image id="28" url="d:\serial_screen\dacai\da_cai\Images\13.png" effect_width="240" effect_height="320" />
+        <image id="29" url="d:\serial_screen\dacai\da_cai\Images\14.png" effect_width="240" effect_height="320" />
     </images>
     <waves />
 </Resource>
