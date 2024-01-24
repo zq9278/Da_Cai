@@ -52,12 +52,8 @@
 
 
 function on_init()
-        start_timer(4, 200, 0, 0) --开启定时器4，超时时间100ms ，检查标志位 
+        start_timer(4, 200, 0, 0) --开启定时器4，超时时间100ms ，检查标志位
 end
-
-
-
-
 
 uart_free_protocol = 0
 local Func_lampState = 0x01
@@ -94,17 +90,14 @@ local cmd_head_tag = 0
 --         start_timer(3, 60000, 1, 0)
 -- end
 -- function on_systick()                  --系统函数每秒执行一次，作用检测定时器标志位是否被串口写入
-        
+
 -- end
 
 
 
 --定时器中断回调函数
 function on_timer(timer_id)
-
-
-
-        if timer_id == 4 then            --系统函数每秒执行一次，作用检测定时器标志位是否被串口写入                   
+        if timer_id == 4 then                  --系统函数每秒执行一次，作用检测定时器标志位是否被串口写入
                 value_timer0 = get_value(3, 7) --获取热敷定时器标志位数值
                 if value_timer0 == 1 then
                         value = get_value(2, 6)
@@ -115,7 +108,7 @@ function on_timer(timer_id)
                 if value_timer0 == 2 then                  --通过按钮控制程序停止时的标志位
                         value_zero = string.format("%02d", 0)
                         set_text(3, 2, value_zero)         --清除本次数值
-        
+
                         stop_timer(0)
                         change_screen(4)
                         set_value(3, 7, 0)
@@ -124,18 +117,18 @@ function on_timer(timer_id)
                 if value_timer1 == 1 then
                         value_maidong = 60 * 5                 --默认5分钟
                         start_timer(2, 1000, 1, value_maidong) --开启定时器2，超时时间1s
-        
+
                         value = string.format("%02d", 5)
                         value_force = string.format("%02d", 0)
                         set_text(7, 4, value)       --设置数值
                         set_text(7, 3, value_force) --设置数值
-        
+
                         set_value(7, 7, 0)          --重置标志位
                 end
                 if value_timer1 == 2 then
                         stop_timer(2)
                         value_zero = string.format("%03d", 0)
-                        set_text(7, 2, value_zero)        --清除本次数值
+                        set_text(7, 2, value_zero) --清除本次数值
                         change_screen(8)
                         set_value(7, 7, 0)
                 end
@@ -150,12 +143,11 @@ function on_timer(timer_id)
                         stop_timer(1)
                         value_zero = string.format("%02d", 0)
                         value_zero3 = string.format("%03d", 0)
-                        set_text(12, 3, value_zero)         --清除本次数值
-                        set_text(12, 4, value_zero3)        --清除本次数值
+                        set_text(12, 3, value_zero)  --清除本次数值
+                        set_text(12, 4, value_zero3) --清除本次数值
                         change_screen(13)
                         set_value(12, 7, 0)
                 end
-        
         end
 
 
@@ -248,7 +240,6 @@ function on_timer(timer_id)
                         door_buff2[7] = 0x00
                         door_buff2[8] = 0x02
                         uart_send_data(door_buff2)
-
                 end
         end
 
@@ -280,17 +271,9 @@ function on_timer(timer_id)
                         uart_send_data(door_buff2)
                 end
         end
-        if timer_id == 3 then                               
+        if timer_id == 3 then
                 set_backlight(0)
         end
-
-
-
-        
-
-        
-
-
 end
 
 --控件回调函数
@@ -371,9 +354,8 @@ function on_control_notify(screen, control, value)
                         door_buff[8] = value
 
                         uart_send_data(door_buff)
-                        
-                        stop_timer(3)--关闭屏幕休眠定时器
 
+                        stop_timer(3) --关闭屏幕休眠定时器
                 end
         end
 
@@ -454,7 +436,7 @@ function on_control_notify(screen, control, value)
                         value_zero = string.format("%03d", 0)
                         set_text(7, 2, value_zero) --脉动初数值
 
-                        value = get_value(6, 6)   --获取压力数值
+                        value = get_value(6, 6)    --获取压力数值
                         local door_buff1 = {}
                         door_buff1[0] = 0x5A
                         door_buff1[1] = 0xA5
@@ -466,7 +448,7 @@ function on_control_notify(screen, control, value)
                         door_buff1[7] = value >> 8
                         door_buff1[8] = value
                         uart_send_data(door_buff1)
-                        stop_timer(3)--关闭屏幕休眠定时器
+                        stop_timer(3) --关闭屏幕休眠定时器
                 end
         end
         ----------第7页脉动页面----------
@@ -591,27 +573,27 @@ function on_control_notify(screen, control, value)
 
                         value_zero = string.format("%02d", 0)
                         value_zero3 = string.format("%03d", 0)
-                        set_text(12, 3, value_zero) --自动初数值
+                        set_text(12, 3, value_zero)  --自动初数值
                         set_text(12, 4, value_zero3) --自动初数值
 
 
---                          --热敷预热开启指令
---                          local door_buff1 = {}
---                          door_buff1[0] = 0x5A
---                          door_buff1[1] = 0xA5
---                          door_buff1[2] = 0x06
---                          door_buff1[3] = 0x83
---  1
---                          door_buff1[4] = 0x10
---                          door_buff1[5] = 0x30
---  1
---                          door_buff1[6] = 0x01
---  1
---                          door_buff1[7] = 0x00
---                          door_buff1[8] = 0x02
---                          uart_send_data(door_buff)
+                        --                          --热敷预热开启指令
+                        --                          local door_buff1 = {}
+                        --                          door_buff1[0] = 0x5A
+                        --                          door_buff1[1] = 0xA5
+                        --                          door_buff1[2] = 0x06
+                        --                          door_buff1[3] = 0x83
+                        --  1
+                        --                          door_buff1[4] = 0x10
+                        --                          door_buff1[5] = 0x30
+                        --  1
+                        --                          door_buff1[6] = 0x01
+                        --  1
+                        --                          door_buff1[7] = 0x00
+                        --                          door_buff1[8] = 0x02
+                        --                          uart_send_data(door_buff)
 
-                        value2 = get_value(11, 6)   --获取压力数值
+                        value2 = get_value(11, 6) --获取压力数值
                         local door_buff = {}
                         door_buff[0] = 0x5A
                         door_buff[1] = 0xA5
@@ -623,7 +605,7 @@ function on_control_notify(screen, control, value)
                         door_buff[7] = value2 >> 8
                         door_buff[8] = value2
                         uart_send_data(door_buff)
-                        stop_timer(3)--关闭屏幕休眠定时器
+                        stop_timer(3) --关闭屏幕休眠定时器
                 end
         end
         -----------第12页自动停止页面---------
@@ -644,7 +626,7 @@ function on_control_notify(screen, control, value)
                         set_value(12, 7, 0)
                         value_zero = string.format("%02d", 0)
                         value_zero3 = string.format("%03d", 0)
-                        set_text(12, 3, value_zero) --清除本次数值
+                        set_text(12, 3, value_zero)  --清除本次数值
                         set_text(12, 4, value_zero3) --清除本次数值
                 end
         end
