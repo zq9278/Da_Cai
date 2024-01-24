@@ -337,7 +337,7 @@ function on_control_notify(screen, control, value)
                         value = string.format("%02d", value)
                         value_force = string.format("%02d", 0)
                         set_text(3, 4, value)       --设置数值
-                        set_text(3, 3, value_force) --设置数值
+                        set_text(3, 5, value_force) --设置数值
 
                         value_zero = string.format("%02d", 0)
                         set_text(3, 2, value_zero) --热敷初数值

@@ -83,12 +83,12 @@
 
 #define  _TXT_DIS__SCREEN3_TEXT_DISPLAY4                                       7
 
-#define  _TXT_DIS__SCREEN3_TEXT_DISPLAY1                                       3
-
 #define  _TXT_DIS__SCREEN3_TEXT_DISPLAY2                                       4
 
-//画面Screen3中文本显示Text_Display2的背景图片
-#define  _IMG_SCREEN3_TEXT_DISPLAY2                                            8
+#define  _TXT_DIS__SCREEN3_TEXT_DISPLAY5                                       5
+
+//画面Screen3中文本显示Text_Display5的背景图片
+#define  _IMG_SCREEN3_TEXT_DISPLAY5                                            8
 
 #define  _BTN_SCREEN4_BUTTON1                                                  1
 
