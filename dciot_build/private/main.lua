@@ -110,7 +110,13 @@ function on_timer(timer_id)
                         set_text(3, 2, value_zero)         --清除本次数值
 
                         stop_timer(0)
-                        change_screen(4)
+                        
+                        a = get_value(3, 4)
+                        b = get_value(3, 5)
+                        if a ~= 0 or b ~= 0 then
+                                change_screen(4)
+                        end
+                        
                         set_value(3, 7, 0)
                 end
                 value_timer1 = get_value(7, 7)                 --获取脉动定时器标志位数值
@@ -129,7 +135,14 @@ function on_timer(timer_id)
                         stop_timer(2)
                         value_zero = string.format("%03d", 0)
                         set_text(7, 2, value_zero) --清除本次数值
-                        change_screen(8)
+
+                        a = get_value(7, 3)
+                        b = get_value(7, 4)
+                        if a ~= 0 or b ~= 0 then
+                                change_screen(8)
+                        end
+
+                        
                         set_value(7, 7, 0)
                 end
                 value_timer2 = get_value(12, 7) --获取自动定时器标志位数值
@@ -143,9 +156,13 @@ function on_timer(timer_id)
                         stop_timer(1)
                         value_zero = string.format("%02d", 0)
                         value_zero3 = string.format("%03d", 0)
-                        set_text(12, 3, value_zero)  --清除本次数值
-                        set_text(12, 4, value_zero3) --清除本次数值
-                        change_screen(13)
+
+                        a=get_value(12,5)
+                        b=get_value(12,6)
+                        if a ~= 0 or b ~= 0 then
+                                change_screen(13)
+                            end
+
                         set_value(12, 7, 0)
                 end
         end
@@ -255,7 +272,7 @@ function on_timer(timer_id)
                 set_text(7, 3, result)
                 --当计时器定时为0时界面跳转+结束信号
                 if value_maidong == 0 then
-                        change_screen(7)
+                        change_screen(9)
                         --界面跳转
                         --脉动停止指令（倒计时）
                         local door_buff2 = {}
